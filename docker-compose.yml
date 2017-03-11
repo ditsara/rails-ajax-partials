@@ -1,0 +1,19 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  web:
+    image: ditsara/rails-ajax-partials:development
+    build:
+      context: .
+    ports:
+     - "3000:3000"
+    volumes:
+     - .:/app
+     - ./bundles:/bundles
+    working_dir: /app
+    command: "bin/rails server -p 3000 -b 0.0.0.0"
+    depends_on:
+      - db

@@ -1,0 +1,10 @@
+- comments.each do |comment|
+  p
+    - if comment.title.present?
+      => link_to comment_path(comment) do
+        strong = comment.title
+    - else
+      => link_to comment_path(comment) do
+        strong More
+    = comment.content[0..50]
+

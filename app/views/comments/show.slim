@@ -1,0 +1,13 @@
+- back_path = @comment.parent ? comment_path(@comment.parent) : comments_path
+= link_to 'back', back_path
+
+- if @comment.title.present?
+  h1
+    strong = @comment.title
+p = @comment.content
+
+hr
+= render 'listing', comments: @comment.replies
+
+p Add a Reply
+= render 'form', comment: @comment.replies.new

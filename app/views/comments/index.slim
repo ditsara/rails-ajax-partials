@@ -1,0 +1,10 @@
+= render 'listing', comments: @comments
+hr
+
+- remote = { 'data-remote' => true, 'data-type' => 'html',
+  'data-replace' => 'replace-me',
+  'data-params' => { test: 1, another: { test: 2 } }.to_json }
+
+#replace-me
+  p = link_to 'c1', comment_path(@comments.first), remote if @comments.first
+  p = link_to 'c2', comment_path(@comments.second), remote if @comments.second

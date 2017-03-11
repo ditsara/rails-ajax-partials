@@ -1,0 +1,9 @@
+= form_for comment do |f|
+  = f.hidden_field :parent_id
+  fieldset
+    = f.label :title
+    = f.text_field :title
+  fieldset
+    = f.label :content
+    = f.text_area :content
+  = f.submit
